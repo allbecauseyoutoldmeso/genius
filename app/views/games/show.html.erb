@@ -1,1 +1,16 @@
-<%= @game %>
+<% @game.guesses.select(&:persisted?).each do |guess| %>
+  <%= content_tag(:div, class: 'flex-direction-row') do %>
+    <% guess.code_pegs.each do |code_peg| %>
+      <%= content_tag(:div, nil, class: "code-peg #{code_peg}") %>
+    <% end %>
+    <% guess.key_pegs.each do |key_peg| %>
+      <%= content_tag(:div, nil, class: "key-peg #{key_peg}") %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= simple_form_for([@game, @game.guesses.new]) do |form| %>
+  <% 4.times do %>
+    <%= form.input_field(:code_pegs, multiple: true) %>
+  <% end %>
+  <%= form.button :submit %>
+<% end %>
