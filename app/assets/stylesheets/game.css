@@ -1,3 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 50px;
+}
+
 .flex-direction-row {
   display: flex;
 }
@@ -7,30 +15,48 @@
   flex-direction: column;
 }
 
+.guess-form {
+  align-items: center;
+}
+
+.cell-row {
+  align-items: center;
+  margin: 5px 0;
+}
+
+.cell-spacing {
+  margin: 0 5px;
+}
+
 .code-peg {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  background-color: white;
 }
 
 .blue {
-  box-shadow: inset 0 0 10px blue;
+  box-shadow: inset 0 0 10px #1770ff;
 }
 
 .red {
-  box-shadow: inset 0 0 10px red;
+  box-shadow: inset 0 0 10px #ff2521;
 }
 
 .yellow {
-  box-shadow: inset 0 0 10px yellow;
+  box-shadow: inset 0 0 10px #fffb21;
 }
 
 .green {
-  box-shadow: inset 0 0 10px green;
+  box-shadow: inset 0 0 10px #21ff94;
 }
 
 .orange {
-  box-shadow: inset 0 0 10px orange;
+  box-shadow: inset 0 0 10px #fca000;
+}
+
+.pink {
+  box-shadow: inset 0 0 10px #fc00ca;
 }
 
 .key-peg {
@@ -40,9 +66,38 @@
 }
 
 .black {
-  box-shadow: inset 0 0 10px black;
+  box-shadow: inset 0 0 4px #000000;
 }
 
 .white {
-  box-shadow: inset 0 0 10px gray;
+  background-color: white;
+  box-shadow: inset 0 0 2px #d1cfd1;
+}
+
+.code-peg-cell {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d1cfd1;
+  box-shadow: inset 0 0 10px #ffffff;
+}
+
+.key-peg-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d1cfd1;
+  box-shadow: inset 0 0 10px #ffffff;
+  margin: 2px;
+}
+
+input[type=submit] {
+  background-color: #21ff94;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+.code-peg-box {
+  margin: 20px 0 10px 0;
 }

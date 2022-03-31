@@ -12,3 +12,5 @@ en:
       submit:
         guess:
           create: Submit
+        game:
+          create: New game

@@ -1,0 +1,35 @@
+<%= simple_form_for(
+  [game, game.guesses.new],
+  html: {
+    data: { controller: 'drag' },
+    class: 'flex-direction-column guess-form'
+  }
+) do |form| %>
+  <%= content_tag(:div, class: 'flex-direction-row cell-row') do %>
+    <% 4.times do %>
+      <%= content_tag(
+        :div,
+        nil,
+        class: 'code-peg-cell cell-spacing',
+        data: { action: 'dragover->drag#allowDrop drop->drag#drop' }
+      ) do %>
+        <%= form.hidden_field(:code_pegs, multiple: true) %>
+      <% end %>
+    <% end %>
+    <% 4.times do %>
+      <%= content_tag(:div, nil, class: 'key-peg-cell') %>
+    <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'flex-direction-row code-peg-box') do %>
+    <% Game::COLOURS.each do |colour| %>
+      <%= content_tag(
+        :div,
+        nil,
+        class: "code-peg #{colour} cell-spacing",
+        draggable: true,
+        data: { action: 'dragstart->drag#drag', colour: colour }
+      ) %>
+    <% end %>
+  <% end %>
+  <%= form.button :submit %>
+<% end %>

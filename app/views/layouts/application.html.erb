@@ -11,6 +11,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= content_tag(:div, nil, class: 'container') do %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
