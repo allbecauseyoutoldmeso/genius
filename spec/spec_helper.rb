@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Dir['./spec/support/**/*.rb'].sort.each { |file| require file }
 
 RSpec.configure do |config|

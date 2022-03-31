@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for 'code_pegs_validator' do
   describe '#valid?' do
     it 'is false if there are more than 4 pegs' do

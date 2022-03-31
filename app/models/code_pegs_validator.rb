@@ -10,7 +10,7 @@ class CodePegsValidator < ActiveModel::EachValidator
       record.errors.add(attribute, :less_than_four)
     end
 
-    unless value.all? { |peg| Game::COLOURS.include?(peg) }
+    if value.any? { |peg| !Game::COLOURS.include?(peg) }
       record.errors.add(attribute, :invalid_colours)
     end
   end

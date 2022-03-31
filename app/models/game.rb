@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
-  COLOURS = %w[red orange yellow green blue pink]
+  COLOURS = %w[red orange yellow green blue pink].freeze
 
   before_validation :set_code_pegs
   validates :code_pegs, presence: true, code_pegs: true
 
-  has_many :guesses
+  has_many :guesses, dependent: :destroy
 
   private
 
