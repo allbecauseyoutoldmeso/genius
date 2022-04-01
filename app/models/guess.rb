@@ -20,10 +20,6 @@ class Guess < ApplicationRecord
   private
 
   def white_key_peg?(code_peg, index)
-    game_code_pegs.include?(code_peg) && not_duplicate?(code_peg, index)
-  end
-
-  def not_duplicate?(code_peg, index)
-    (code_pegs[0...index].tally[code_peg] || 0) < game_code_pegs.tally[code_peg]
+    (game_code_pegs.tally[code_peg] || 0) > (code_pegs[0...index].tally[code_peg] || 0)
   end
 end
