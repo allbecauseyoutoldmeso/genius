@@ -20,6 +20,12 @@ class Guess < ApplicationRecord
   private
 
   def white_key_peg?(code_peg, index)
-    (game_code_pegs.tally[code_peg] || 0) > (code_pegs[0...index].tally[code_peg] || 0)
+    (uncounted_code_pegs.tally[code_peg] || 0) > (code_pegs[0...index].tally[code_peg] || 0)
+  end
+
+  def uncounted_code_pegs
+    game_code_pegs.each_with_index.select do |game_code_peg, index|
+      code_pegs[index] != game_code_peg
+    end.map(&:first)
   end
 end
